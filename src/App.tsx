@@ -1,29 +1,53 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import {Todolist} from "./Todolist";
+import {TaskType, Todolist} from './Todolist';
 
-
-const shapka1='What to learn-1'
-const shapka11='What to learn-111111111111111111111111111111111111'
-const shapka2='What to learn-22222222'
-const shapka22='What to learn-222222222222222222222222222222222222'
-
-const tasks1 = [
-    { id: 1, title: "HTML&CSS", isDone: true },
-    { id: 2, title: "JS", isDone: true },
-    { id: 3, title: "ReactJS", isDone: false }
-]
-const tasks2 = [
-    { id: 1, title: "Hello world", isDone: true },
-    { id: 2, title: "I am Happy", isDone: false },
-    { id: 3, title: "Yo", isDone: false }
-]
+export type ButtonNameType = 'All' | 'Active' | 'Completed'
 
 function App() {
+
+    // let tasks1 = [
+    //     {id: 1, title: "HTML&CSS", isDone: true},
+    //     {id: 2, title: "JS", isDone: true},
+    //     {id: 3, title: "ReactJS", isDone: false}
+    // ]
+
+    let [tasks1, setTasks1] = useState<Array<TaskType>>([
+        {id: 1, title: "HTML&CSS", isDone: true},
+        {id: 2, title: "JS", isDone: true},
+        {id: 3, title: "ReactJS", isDone: false}
+    ])
+
+    const removeTask = (taskId: number) => {
+        // tasks1 = tasks1.filter((el) => el.id !== taskId)
+        setTasks1(tasks1.filter((el) => el.id !== taskId))
+    }
+
+    // let [filterTask,setFilterTask]=useState<ButtonNameType>('All')
+    //
+    //
+    //
+    // const filteringTask = (buttonName: ButtonNameType) => {
+    //     setFilterTask(buttonName)
+    // }
+    //
+    // let filteredTasks = tasks1
+    // if (filterTask === 'Active') {
+    //     filteredTasks = tasks1.filter(el => el.isDone)
+    // }
+    // if (filterTask === 'Completed') {
+    //     filteredTasks = tasks1.filter(el => !el.isDone)
+    // }
+
+
     return (
         <div className="App">
-            <Todolist  newShapka={shapka11} tasks={tasks1} />
-            <Todolist shapka={shapka2} tasks={tasks2}/>
+            <Todolist
+                title="What to learn"
+                // tasks={filteredTasks}
+                tasks={tasks1}
+                removeTask={removeTask}
+                /*filteringTask={filteringTask}*//>
         </div>
     );
 }
