@@ -1,6 +1,8 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
-import Button from '@mui/material/Button';
-import TextField from '@mui/material/TextField';
+import {IconButton, TextField} from "@mui/material";
+import {AddBox} from "@mui/icons-material";
+
+
 
 type AddItemFormPropsType = {
     addItem: (title: string) => void
@@ -31,35 +33,17 @@ export function AddItemForm(props: AddItemFormPropsType) {
         }
     }
 
-    const buttonSettings = {
-        maxWidth: '38px',
-        maxHeight: '38px',
-        minWidth: '38px',
-        minHeight: '38px',
-        // backgroundColor: 'black'
-    }
-
     return <div>
-        {/*     <input value={title}
-               onChange={onChangeHandler}
-               onKeyPress={onKeyPressHandler}
-               className={error ? "error" : ""}
-        />*/}
-
-        <TextField
-            value={title}
-            id="outlined-basic"
-            label={error ? "Title is required" : "Please type..."}
-            variant="outlined"
-            onChange={onChangeHandler}
-            onKeyPress={onKeyPressHandler}
-            size={'small'}
-            error={!!error}
+        <TextField variant="outlined"
+                   error={!!error}
+                   value={title}
+                   onChange={onChangeHandler}
+                   onKeyPress={onKeyPressHandler}
+                   label="Title"
+                   helperText={error}
         />
-
-        {/*<button  onClick={addItem}>+</button>*/}
-        <Button size="small" variant="contained" onClick={addItem} style={buttonSettings}>+</Button>
-
-        {/*{error && <div className="error-message">{error}</div>}*/}
+        <IconButton color="primary" onClick={addItem}>
+            <AddBox />
+        </IconButton>
     </div>
 }
