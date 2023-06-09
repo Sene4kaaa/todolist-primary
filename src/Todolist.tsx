@@ -55,6 +55,8 @@ export const Todolist = memo((props: PropsType) => {
     // }, [props.changeTaskTitle, props.id])
 
 
+
+
     tasks = useMemo(() => {
         if (props.filter === "active") {
             tasks = tasks.filter(t => t.isDone === false);
