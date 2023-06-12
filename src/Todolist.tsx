@@ -46,16 +46,6 @@ export const Todolist = memo((props: PropsType) => {
     const onActiveClickHandler = useCallback(() => props.changeFilter("active", props.id), [props.changeFilter, props.id]);
     const onCompletedClickHandler = useCallback(() => props.changeFilter("completed", props.id), [props.changeFilter, props.id]);
 
-    // const removeTask = useCallback((taskId: string) => props.removeTask(taskId, props.id), [props.removeTask, props.id])
-    // const changeTaskStatus = useCallback((taskId: string, newIsDoneValue: boolean) => {
-    //     props.changeTaskStatus(taskId, newIsDoneValue, props.id);
-    // }, [props.changeTaskStatus, props.id])
-    // const changeTaskTitle = useCallback((taskId: string, newValue: string) => {
-    //     props.changeTaskTitle(taskId, newValue, props.id);
-    // }, [props.changeTaskTitle, props.id])
-
-
-
 
     tasks = useMemo(() => {
         if (props.filter === "active") {
