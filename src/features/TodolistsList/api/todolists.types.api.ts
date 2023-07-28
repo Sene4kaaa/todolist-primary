@@ -1,5 +1,5 @@
 import { TaskPriorities, TaskStatuses } from "common/enums";
-import { UpdateDomainTaskModelType } from "features/TodolistsList/tasks.reducer";
+import { UpdateDomainTaskModelType } from "features/TodolistsList/model/tasks.reducer";
 
 export type TodolistType = {
   id: string;
@@ -34,7 +34,10 @@ export type GetTasksResponse = {
   items: TaskType[];
 };
 
-export type AddTaskArgType = { todolistId: string; title: string };
+export type AddTaskArgType = {
+  title: string;
+  todolistId: string;
+};
 
 export type UpdateTaskArgType = {
   taskId: string;
