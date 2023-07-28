@@ -61,7 +61,7 @@ const slice = createSlice({
 
 // thunks
 const fetchTasks = createAppAsyncThunk<{ tasks: TaskType[]; todolistId: string }, string>(
-  "tasks/fetchTasksTC",
+  "tasks/fetchTasks",
   async (todolistId, thunkAPI) => {
     const { dispatch, rejectWithValue } = thunkAPI;
     try {
@@ -119,7 +119,7 @@ const updateTask = createAppAsyncThunk<UpdateTaskArgType, UpdateTaskArgType>(
       };
 
       const res = await todolistsAPI.updateTask(arg.todolistId, arg.taskId, apiModel);
-      if (res.data.resultCode === 0) {
+      if (res.data.resultCode === ResultCode.success) {
         return arg;
       } else {
         handleServerAppError(res.data, dispatch);
