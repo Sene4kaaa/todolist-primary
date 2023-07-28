@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { AppThunk } from "app/store";
 import { appActions } from "app/app.reducer";
 import { clearTasksAndTodolists } from "common/actions/common.actions";
-import { handleServerAppError } from "common/utils/handle-Server-App-Error";
-import { handleServerNetworkError } from "common/utils/handle-Server-Network-Error";
+import { handleServerAppError } from "common/utils/handle-server-app-error";
+import { handleServerNetworkError } from "common/utils/handle-server-network-error";
 
 const slice = createSlice({
   name: "auth",

@@ -1,3 +1,3 @@
-export { handleServerNetworkError } from "./handle-Server-Network-Error";
-export { handleServerAppError } from "./handle-Server-App-Error";
+export { handleServerNetworkError } from "common/utils/handle-server-network-error";
+export { handleServerAppError } from "common/utils/handle-server-app-error";
 export { createAppAsyncThunk } from "./create-app-async-thunk";
