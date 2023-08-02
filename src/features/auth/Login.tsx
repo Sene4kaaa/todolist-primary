@@ -36,7 +36,7 @@ export const Login = () => {
             dispatch(authThunks.login(values))
                 .unwrap()
                 .catch((reason: ResponseType) => {
-                    formikHelpers.setFieldError('email', 'ERROR !!!')
+                    formikHelpers.setFieldError(reason.fieldsErrors[0].field,reason.fieldsErrors[0].error)
                 });
         },
     });
