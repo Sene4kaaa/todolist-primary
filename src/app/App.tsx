@@ -31,8 +31,8 @@ function App() {
 
   useEffect(() => {
     // dispatch( authThunks.initializeApp());
-    const callBack = bindActionCreators(authThunks.initializeApp, dispatch)
-    callBack()
+    bindActionCreators(authThunks.initializeApp, dispatch)()
+
   }, []);
 
   const logoutHandler = useCallback(() => {
