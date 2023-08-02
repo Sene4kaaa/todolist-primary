@@ -19,7 +19,8 @@ import { ErrorSnackbar } from "common/components";
 import { useAppDispatch } from "common/hooks";
 import { selectIsLoggedIn } from "features/auth/auth.selectors";
 import { selectAppStatus, selectIsInitialized } from "app/app.selectors";
-import {authThunks} from "../features/auth/auth.reducer";
+import {authThunks} from "features/auth/auth.reducer";
+import {bindActionCreators} from "redux";
 
 function App() {
   const status = useSelector(selectAppStatus);
@@ -29,7 +30,9 @@ function App() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch( authThunks.initializeApp());
+    // dispatch( authThunks.initializeApp());
+    const callBack = bindActionCreators(authThunks.initializeApp, dispatch)
+    callBack()
   }, []);
 
   const logoutHandler = useCallback(() => {
