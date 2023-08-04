@@ -20,7 +20,7 @@ import {useActions, useAppDispatch} from "common/hooks";
 import {selectIsLoggedIn} from "features/auth/auth.selectors";
 import {selectAppStatus, selectIsInitialized} from "app/app.selectors";
 import {authThunks} from "features/auth/auth.reducer";
-import {bindActionCreators} from "redux";
+
 
 function App() {
     const status = useSelector(selectAppStatus);
