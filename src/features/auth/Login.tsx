@@ -7,7 +7,7 @@ import {useAppDispatch} from "common/hooks";
 import {selectIsLoggedIn} from "features/auth/auth.selectors";
 import {authThunks} from "./auth.reducer";
 import {LoginParamsType} from "./auth.api";
-import {ResponseType} from "common/types";
+import {BaseResponseType} from "common/types";
 
 export const Login = () => {
     const dispatch = useAppDispatch();
@@ -35,7 +35,7 @@ export const Login = () => {
         onSubmit: (values, formikHelpers: FormikHelpers<LoginParamsType>) => {
             dispatch(authThunks.login(values))
                 .unwrap()
-                .catch((reason: ResponseType) => {
+                .catch((reason: BaseResponseType) => {
                     if (reason.fieldsErrors) {
                         reason.fieldsErrors.forEach((fieldError) => {
                             formikHelpers.setFieldError(fieldError.field, fieldError.error)

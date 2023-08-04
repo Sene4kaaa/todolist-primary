@@ -70,7 +70,7 @@ const logout = createAppAsyncThunk<{ isLoggedIn: boolean }, void>('auth/logout',
     }
 })
 
-const initializeApp = createAppAsyncThunk<{ isLoggedIn: boolean }, void>('app/initializeApp', async (_, thunkAPI) => {
+const initializeApp = createAppAsyncThunk<{ isLoggedIn: boolean }, undefined>('app/initializeApp', async (_, thunkAPI) => {
     const {dispatch, rejectWithValue} = thunkAPI;
     try {
         const res = await authAPI.me()
