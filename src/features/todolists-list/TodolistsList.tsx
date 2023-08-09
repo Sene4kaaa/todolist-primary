@@ -4,7 +4,7 @@ import { FilterValuesType, todolistsActions, todolistsThunks } from "features/to
 import { tasksThunks } from "features/todolists-list/tasks/model/tasks.reducer";
 import { Grid, Paper } from "@mui/material";
 import { AddItemForm } from "common/components";
-import { Todolist } from "./todolists/Todolist/Todolist";
+import { Todolist } from "./todolists/todolist/Todolist";
 import { Navigate } from "react-router-dom";
 import { useActions } from "common/hooks";
 import { selectIsLoggedIn } from "features/auth/model/auth.selectors";
