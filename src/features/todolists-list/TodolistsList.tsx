@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {todolistsThunks} from "features/todolists-list/todolists/todolists.reducer";
 import {Grid, Paper} from "@mui/material";
 import {AddItemForm} from "common/components";
-import {Todolist} from "./todolists/todolist/Todolist";
+import {Todolist} from "features/todolists-list/todolists/todolist/todolist";
 import {Navigate} from "react-router-dom";
 import {useActions} from "common/hooks";
 import {selectIsLoggedIn} from "features/auth/model/auth.selectors";

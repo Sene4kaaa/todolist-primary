@@ -1,5 +1,5 @@
 import {Button} from "@mui/material";
-import React, {FC, useCallback} from "react";
+import React, {FC} from "react";
 import {useActions} from "common/hooks";
 import {
     FilterValuesType,
@@ -16,7 +16,6 @@ export const FilterTasksButtons: FC<Props> = ({todolist}) => {
     const {changeTodolistFilter} = useActions(todolistsActions);
 
     const changeFilterHandler = (filter: FilterValuesType) => changeTodolistFilter({filter, id: todolist.id})
-
 
     return (
         <>
