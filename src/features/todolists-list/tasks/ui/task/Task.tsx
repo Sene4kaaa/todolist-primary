@@ -7,14 +7,13 @@ import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
 import {useActions} from "common/hooks";
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
 
-type TaskPropsType = {
+type Props = {
     task: TaskType;
     todolistId: string;
 };
 
 
-
-export const Task = React.memo((props: TaskPropsType) => {
+export const Task = React.memo((props: Props) => {
 
     const {removeTask, updateTask} = useActions(tasksThunks)
 
