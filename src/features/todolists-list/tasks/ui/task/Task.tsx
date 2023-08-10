@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useCallback} from "react";
+import React, {ChangeEvent, memo, } from "react";
 import {Checkbox, IconButton} from "@mui/material";
 import {Delete} from "@mui/icons-material";
 import {EditableSpan} from "common/components";
@@ -13,7 +13,7 @@ type Props = {
 };
 
 
-export const Task = React.memo((props: Props) => {
+export const Task = memo((props: Props) => {
 
     const {removeTask, updateTask} = useActions(tasksThunks)
 
