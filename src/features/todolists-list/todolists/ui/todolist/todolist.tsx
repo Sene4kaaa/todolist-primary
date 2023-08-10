@@ -4,7 +4,9 @@ import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
 import {useActions} from "common/hooks";
 import {AddItemForm} from "common/components";
 import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
-import {FilterTasksButtons} from "features/todolists-list/todolists/ui/todolist/filter-tasks-buttons/filter-tasks-buttons";
+import {
+    FilterTasksButtons
+} from "features/todolists-list/todolists/ui/todolist/filter-tasks-buttons/filter-tasks-buttons";
 import {Tasks} from "features/todolists-list/todolists/ui/todolist/tasks/tasks";
 import {TodolistTitle} from "features/todolists-list/todolists/ui/todolist/todolist-title/todolist-title";
 
@@ -22,7 +24,7 @@ export const Todolist: FC<Props> = memo(({todolist, tasks}) => {
     }, []);
 
     const addTaskCallback = (title: string) => {
-        addTask({title, todolistId: todolist.id})
+        return addTask({title, todolistId: todolist.id}).unwrap()
     }
 
     return (
