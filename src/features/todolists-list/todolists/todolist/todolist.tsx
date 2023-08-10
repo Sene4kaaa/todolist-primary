@@ -1,17 +1,16 @@
-import React, { useEffect} from "react";
+import React, {useEffect} from "react";
 import {Delete} from "@mui/icons-material";
-import { IconButton} from "@mui/material";
-import {Task} from "features/todolists-list/tasks/ui/task/task";
+import {IconButton} from "@mui/material";
 import {
     TodolistDomainType,
     todolistsThunks
 } from "features/todolists-list/todolists/todolists.reducer";
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
-import {TaskStatuses} from "common/enums";
 import {useActions} from "common/hooks";
 import {AddItemForm, EditableSpan} from "common/components";
 import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
 import {FilterTasksButtons} from "features/todolists-list/todolists/todolist/filter-tasks-buttons/filter-tasks-buttons";
+import {Tasks} from "features/todolists-list/todolists/todolist/tasks/tasks";
 
 type PropsType = {
     todolist: TodolistDomainType;
@@ -40,15 +39,6 @@ export const Todolist = React.memo(function (props: PropsType) {
         changeTodolistTitle({id: props.todolist.id, title})
     }
 
-    let tasksForTodolist = props.tasks;
-
-    if (props.todolist.filter === "active") {
-        tasksForTodolist = props.tasks.filter((t) => t.status === TaskStatuses.New);
-    }
-    if (props.todolist.filter === "completed") {
-        tasksForTodolist = props.tasks.filter((t) => t.status === TaskStatuses.Completed);
-    }
-
     return (
         <div>
             <h3>
@@ -58,16 +48,7 @@ export const Todolist = React.memo(function (props: PropsType) {
                 </IconButton>
             </h3>
             <AddItemForm addItem={addTaskCallback} disabled={props.todolist.entityStatus === "loading"}/>
-            <div>
-                {tasksForTodolist.map((t) => (
-                    <Task
-                        key={t.id}
-                        task={t}
-                        todolistId={props.todolist.id}
-
-                    />
-                ))}
-            </div>
+            <Tasks todolist={props.todolist} tasks={props.tasks}/>
             <div style={{paddingTop: "10px"}}>
                 <FilterTasksButtons todolist={props.todolist}/>
             </div>
