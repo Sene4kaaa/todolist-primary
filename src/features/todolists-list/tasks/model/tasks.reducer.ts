@@ -2,14 +2,15 @@ import {createSlice} from "@reduxjs/toolkit";
 import {appActions} from "app/app.reducer";
 import {todolistsThunks} from "features/todolists-list/todolists/model/todolists.reducer";
 import {createAppAsyncThunk, handleServerAppError, thunkTryCatch} from "common/utils";
-import {ResultCode, TaskPriorities, TaskStatuses} from "common/enums";
+import {ResultCode} from "common/enums";
 import {clearTasksAndTodolists} from "common/actions";
 import {
     AddTaskArgType,
-    RemoveTaskArgType, tasksApi,
+    RemoveTaskArgType,
     TaskType,
     UpdateTaskArgType, UpdateTaskModelType
-} from "features/todolists-list/tasks/api/tasks.api";
+} from "features/todolists-list/tasks/api/tasks.api.types";
+import {tasksApi} from "features/todolists-list/tasks/api/tasks.api";
 
 const fetchTasks = createAppAsyncThunk<{ tasks: TaskType[]; todolistId: string }, string>(
     "tasks/fetchTasks",
@@ -131,15 +132,5 @@ const slice = createSlice({
 
 export const tasksReducer = slice.reducer;
 export const tasksThunks = {fetchTasks, addTask, updateTask, removeTask};
-
-// types
-export type UpdateDomainTaskModelType = {
-    title?: string;
-    description?: string;
-    status?: TaskStatuses;
-    priority?: TaskPriorities;
-    startDate?: string;
-    deadline?: string;
-};
 
 export type TasksStateType = Record<string, TaskType[]>

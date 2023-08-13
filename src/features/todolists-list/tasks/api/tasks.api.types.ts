@@ -1,5 +1,5 @@
 import {TaskPriorities, TaskStatuses} from "common/enums";
-import {UpdateDomainTaskModelType} from "features/todolists-list/tasks/model/tasks.reducer";
+
 
 export type TaskType = {
     description: string;
@@ -43,4 +43,13 @@ export type UpdateTaskArgType = {
 export type RemoveTaskArgType = {
     todolistId: string;
     taskId: string;
+};
+
+export type UpdateDomainTaskModelType = {
+    title?: string;
+    description?: string;
+    status?: TaskStatuses;
+    priority?: TaskPriorities;
+    startDate?: string;
+    deadline?: string;
 };
