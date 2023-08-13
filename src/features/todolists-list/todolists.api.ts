@@ -1,6 +1,6 @@
 import { instance } from "common/api/common.api";
 import { TaskPriorities, TaskStatuses } from "common/enums/common.enums";
-import { UpdateDomainTaskModelType } from "features/todolists-list/tasks/tasks.reducer";
+import { UpdateDomainTaskModelType } from "features/todolists-list/tasks/model/tasks.reducer";
 import { BaseResponseType } from "common/types";
 
 export const todolistsApi = {
@@ -16,6 +16,7 @@ export const todolistsApi = {
   updateTodolist(arg: UpdateTodolistTitleArgType) {
     return instance.put<BaseResponseType>(`todo-lists/${arg.id}`, { title: arg.title });
   },
+
   getTasks(todolistId: string) {
     return instance.get<GetTasksResponse>(`todo-lists/${todolistId}/tasks`);
   },
