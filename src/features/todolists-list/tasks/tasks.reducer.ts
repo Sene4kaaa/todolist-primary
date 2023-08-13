@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {appActions} from "app/app.reducer";
-import {todolistsThunks} from "features/todolists-list/todolists.reducer";
+import {todolistsThunks} from "features/todolists-list/todolists/todolists.reducer";
 import {
     AddTaskArgType,
     RemoveTaskArgType,
