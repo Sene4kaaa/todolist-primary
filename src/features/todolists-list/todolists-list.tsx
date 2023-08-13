@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { FilterValuesType, todolistsActions, todolistsThunks } from "features/todolists-list/todolists/todolists.reducer";
+import { FilterValuesType, todolistsActions, todolistsThunks } from "features/todolists-list/todolists/model/todolists.reducer";
 import { tasksThunks } from "features/todolists-list/tasks/model/tasks.reducer";
 import { Grid, Paper } from "@mui/material";
 import { AddItemForm } from "common/components";
@@ -9,7 +9,7 @@ import { Navigate } from "react-router-dom";
 import { useActions } from "common/hooks";
 import { selectIsLoggedIn } from "features/auth/model/auth.selectors";
 import { selectTasks } from "features/todolists-list/tasks/model/tasks.selectors";
-import { selectTodolists } from "features/todolists-list/todolists/todolists.selectors";
+import { selectTodolists } from "features/todolists-list/todolists/model/todolists.selectors";
 import { TaskStatuses } from "common/enums";
 
 export const TodolistsList = () => {
