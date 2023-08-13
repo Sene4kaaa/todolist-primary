@@ -40,7 +40,7 @@ type GetTasksResponse = {
     items: TaskType[];
 };
 
-type AddTaskArgType = {
+export type AddTaskArgType = {
     title: string;
     todolistId: string;
 };
