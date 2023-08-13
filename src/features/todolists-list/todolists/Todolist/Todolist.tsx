@@ -4,7 +4,7 @@ import { Button, IconButton } from "@mui/material";
 import { Task } from "features/todolists-list/todolists/Todolist/Task/Task";
 import { FilterValuesType, TodolistDomainType } from "features/todolists-list/todolists/todolists.reducer";
 import { tasksThunks } from "features/todolists-list/tasks/model/tasks.reducer";
-import { TaskType } from "features/todolists-list/todolists.api";
+import { TaskType } from "features/todolists-list/todolists/api/todolists.api";
 import { TaskStatuses } from "common/enums";
 import { useActions } from "common/hooks";
 import { AddItemForm, EditableSpan } from "common/components";

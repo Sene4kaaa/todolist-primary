@@ -8,7 +8,7 @@ import {
     todolistsApi,
     UpdateTaskArgType,
     UpdateTaskModelType,
-} from "features/todolists-list/todolists.api";
+} from "features/todolists-list/todolists/api/todolists.api";
 import {createAppAsyncThunk, handleServerAppError, thunkTryCatch} from "common/utils";
 import {ResultCode, TaskPriorities, TaskStatuses} from "common/enums";
 import {clearTasksAndTodolists} from "common/actions";
