@@ -27,8 +27,8 @@ const slice = createSlice({
         builder.addMatcher((action: AnyAction) => {
                 return action.type.endsWith('/pending')
             },
-            (state, action) => {
-
+            (state) => {
+                state.status = "loading"
             })
     }
 });
