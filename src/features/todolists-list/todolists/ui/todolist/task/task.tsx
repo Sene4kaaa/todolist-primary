@@ -6,6 +6,7 @@ import {TaskStatuses} from "common/enums";
 import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
 import {useActions} from "common/hooks";
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
+import s from "./task.module.css"
 
 type Props = {
     task: TaskType;
@@ -31,7 +32,7 @@ export const Task: FC<Props> = memo(({task, todolistId}) => {
     }
 
     return (
-        <div key={task.id} className={task.status === TaskStatuses.Completed ? "is-done" : ""}>
+        <div key={task.id} className={task.status === TaskStatuses.Completed ? s.isDone : ""}>
             <Checkbox checked={task.status === TaskStatuses.Completed} color="primary"
                       onChange={changeStatusHandler}/>
 
