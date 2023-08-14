@@ -25,11 +25,11 @@ const slice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addMatcher((action: AnyAction) => {
-            return true
-        },
+                return action.type.endsWith('/pending')
+            },
             (state, action) => {
 
-        })
+            })
     }
 });
 
