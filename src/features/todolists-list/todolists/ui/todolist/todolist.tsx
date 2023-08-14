@@ -2,7 +2,11 @@ import React, {useCallback, useEffect} from "react";
 import {Delete} from "@mui/icons-material";
 import {Button, IconButton} from "@mui/material";
 import {Task} from "features/todolists-list/todolists/ui/todolist/task/task";
-import {TodolistDomainType, todolistsActions} from "features/todolists-list/todolists/model/todolists.reducer";
+import {
+    TodolistDomainType,
+    todolistsActions,
+    todolistsThunks
+} from "features/todolists-list/todolists/model/todolists.reducer";
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
 import {TaskStatuses} from "common/enums";
 import {useActions} from "common/hooks";
@@ -12,12 +16,12 @@ import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
 type PropsType = {
     todolist: TodolistDomainType;
     tasks: TaskType[];
-
 };
 
 export const Todolist = React.memo(function (props: PropsType) {
     const {fetchTasks, addTask} = useActions(tasksThunks);
     const {changeTodolistFilter} = useActions(todolistsActions);
+    const {removeTodolist,changeTodolistTitle,} = useActions(todolistsThunks);
 
 
     useEffect(() => {
@@ -31,8 +35,8 @@ export const Todolist = React.memo(function (props: PropsType) {
         [props.todolist.id],
     );
 
-    const removeTodolist = () => {
-        props.removeTodolist(props.todolist.id);
+    const removeTodolistHandler = () => {
+       removeTodolist(props.todolist.id);
     };
 
     const changeTodolistTitle = useCallback(
@@ -68,7 +72,7 @@ export const Todolist = React.memo(function (props: PropsType) {
         <div>
             <h3>
                 <EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
-                <IconButton onClick={removeTodolist} disabled={props.todolist.entityStatus === "loading"}>
+                <IconButton onClick={removeTodolistHandler} disabled={props.todolist.entityStatus === "loading"}>
                     <Delete/>
                 </IconButton>
             </h3>
