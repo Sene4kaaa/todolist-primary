@@ -30,13 +30,13 @@ export const Todolist: FC<Props> = memo(({todolist,tasks}) => {
     );
 
     return (
-        <div>
+        <>
             <TodolistTitle todolist={todolist}/>
             <AddItemForm addItem={addTaskCallback} disabled={todolist.entityStatus === "loading"}/>
             <Tasks todolist={todolist} tasks={tasks}/>
             <div style={{paddingTop: "10px"}}>
                 <FilterTasksButtons todolist={todolist}/>
             </div>
-        </div>
+        </>
     );
 });
