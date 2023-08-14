@@ -1,5 +1,5 @@
 import React, {FC, memo, useCallback, useEffect} from "react";
-import {TodolistDomainType} from "features/todolists-list/todolists/model/todolists.reducer";
+import {TodolistDomainType} from "features/todolists-list/todolists/model/todolists.slice";
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
 import {useActions} from "common/hooks";
 import {AddItemForm} from "common/components";

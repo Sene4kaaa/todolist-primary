@@ -1,6 +1,6 @@
 import {createSlice} from "@reduxjs/toolkit";
 import {appActions} from "app/app.reducer";
-import {todolistsThunks} from "features/todolists-list/todolists/model/todolists.reducer";
+import {todolistsThunks} from "features/todolists-list/todolists/model/todolists.slice";
 import {createAppAsyncThunk, handleServerAppError, thunkTryCatch} from "common/utils";
 import {ResultCode} from "common/enums";
 import {clearTasksAndTodolists} from "common/actions";
