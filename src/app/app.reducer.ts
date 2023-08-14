@@ -28,19 +28,19 @@ const slice = createSlice({
                 state.status = "loading"
             })
             .addMatcher((action: AnyAction) => {
-                    return action.type.endsWith('/fulfilled')
-                },
-                (state) => {
-                    state.status = "idle"
-                })
-            .addMatcher((action: AnyAction) => {
                     return action.type.endsWith('/rejected')
                 },
                 (state) => {
                     state.status = "failed"
                 })
-    }
+            .addMatcher((action: AnyAction) => {
+                    return action.type.endsWith('/fulfilled')
+                },
+                (state) => {
+                    state.status = "succeeded"
+                })
 
+    }
 });
 
 export const appReducer = slice.reducer;
