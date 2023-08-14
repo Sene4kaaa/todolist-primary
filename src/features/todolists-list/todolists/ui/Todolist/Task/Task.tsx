@@ -13,7 +13,7 @@ type Props = {
 };
 
 
-export const Task: FC<Props> = memo(({task,todolistId}) => {
+export const Task: FC<Props> = memo(({task, todolistId}) => {
 
     const {removeTask, updateTask} = useActions(tasksThunks)
 
