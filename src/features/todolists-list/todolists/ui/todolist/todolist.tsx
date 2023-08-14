@@ -47,16 +47,16 @@ export const Todolist = React.memo(function (props: PropsType) {
     );
 
     const onAllClickHandler = useCallback(
-        () => props.changeFilter("all", props.todolist.id),
-        [props.todolist.id, props.changeFilter],
+        () => changeTodolistFilter({id: props.todolist.id,filter: "all"} ),
+        [props.todolist.id],
     );
     const onActiveClickHandler = useCallback(
-        () => props.changeFilter("active", props.todolist.id),
-        [props.todolist.id, props.changeFilter],
+        () => changeTodolistFilter({id: props.todolist.id,filter: "active"} ),
+        [props.todolist.id],
     );
     const onCompletedClickHandler = useCallback(
-        () => props.changeFilter("completed", props.todolist.id),
-        [props.todolist.id, props.changeFilter],
+        () =>  changeTodolistFilter({id: props.todolist.id,filter: "completed"} ),
+        [props.todolist.id],
     );
 
     let tasksForTodolist = props.tasks;
