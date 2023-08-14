@@ -28,7 +28,6 @@ export const TodolistsList = () => {
         changeTodolistTitle: changeTodolistTitleThunk,
     } = useActions(todolistsThunks);
 
-    const {addTask: addTaskThunk} = useActions(tasksThunks);
     const {changeTodolistFilter} = useActions(todolistsActions);
 
     useEffect(() => {
@@ -36,11 +35,6 @@ export const TodolistsList = () => {
             return;
         }
         fetchTodolists();
-    }, []);
-
-
-    const addTask = useCallback(function (title: string, todolistId: string) {
-        addTaskThunk({title, todolistId});
     }, []);
 
     const changeFilter = useCallback(function (filter: FilterValuesType, id: string) {
@@ -79,7 +73,6 @@ export const TodolistsList = () => {
                                     todolist={tl}
                                     tasks={allTodolistTasks}
                                     changeFilter={changeFilter}
-                                    addTask={addTask}
                                     removeTodolist={removeTodolist}
                                     changeTodolistTitle={changeTodolistTitle}
                                 />
