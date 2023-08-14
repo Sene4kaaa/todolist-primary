@@ -13,12 +13,12 @@ import {useActions} from "common/hooks";
 import {AddItemForm, EditableSpan} from "common/components";
 import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
 
-type PropsType = {
+type Props = {
     todolist: TodolistDomainType;
     tasks: TaskType[];
 };
 
-export const Todolist = memo((props: PropsType) => {
+export const Todolist = memo((props: Props) => {
     const {fetchTasks, addTask} = useActions(tasksThunks);
     const {changeTodolistFilter} = useActions(todolistsActions);
     const {removeTodolist, changeTodolistTitle,} = useActions(todolistsThunks);
