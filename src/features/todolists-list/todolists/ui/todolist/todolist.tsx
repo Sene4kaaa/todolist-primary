@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect} from "react";
+import React, {memo, useCallback, useEffect} from "react";
 import {Delete} from "@mui/icons-material";
 import {Button, IconButton} from "@mui/material";
 import {Task} from "features/todolists-list/todolists/ui/todolist/task/task";
@@ -18,7 +18,7 @@ type PropsType = {
     tasks: TaskType[];
 };
 
-export const Todolist = React.memo(function (props: PropsType) {
+export const Todolist = memo((props: PropsType) => {
     const {fetchTasks, addTask} = useActions(tasksThunks);
     const {changeTodolistFilter} = useActions(todolistsActions);
     const {removeTodolist, changeTodolistTitle,} = useActions(todolistsThunks);
@@ -47,15 +47,15 @@ export const Todolist = React.memo(function (props: PropsType) {
     );
 
     const onAllClickHandler = useCallback(
-        () => changeTodolistFilter({id: props.todolist.id,filter: "all"} ),
+        () => changeTodolistFilter({id: props.todolist.id, filter: "all"}),
         [props.todolist.id],
     );
     const onActiveClickHandler = useCallback(
-        () => changeTodolistFilter({id: props.todolist.id,filter: "active"} ),
+        () => changeTodolistFilter({id: props.todolist.id, filter: "active"}),
         [props.todolist.id],
     );
     const onCompletedClickHandler = useCallback(
-        () =>  changeTodolistFilter({id: props.todolist.id,filter: "completed"} ),
+        () => changeTodolistFilter({id: props.todolist.id, filter: "completed"}),
         [props.todolist.id],
     );
 
