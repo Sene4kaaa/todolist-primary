@@ -8,7 +8,7 @@ import {
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
 import {Grid, Paper} from "@mui/material";
 import {AddItemForm} from "common/components";
-import {Todolist} from "./todolists/ui/Todolist/Todolist";
+import {Todolist} from "features/todolists-list/todolists/ui/Todolist/todolist";
 import {Navigate} from "react-router-dom";
 import {useActions} from "common/hooks";
 import {selectIsLoggedIn} from "features/auth/model/auth.selectors";
