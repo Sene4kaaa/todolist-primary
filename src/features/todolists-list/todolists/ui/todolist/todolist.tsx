@@ -2,7 +2,7 @@ import React, {useCallback, useEffect} from "react";
 import {Delete} from "@mui/icons-material";
 import {Button, IconButton} from "@mui/material";
 import {Task} from "features/todolists-list/todolists/ui/todolist/task/task";
-import {FilterValuesType, TodolistDomainType} from "features/todolists-list/todolists/model/todolists.reducer";
+import {TodolistDomainType, todolistsActions} from "features/todolists-list/todolists/model/todolists.reducer";
 import {tasksThunks} from "features/todolists-list/tasks/model/tasks.reducer";
 import {TaskStatuses} from "common/enums";
 import {useActions} from "common/hooks";
@@ -12,13 +12,12 @@ import {TaskType} from "features/todolists-list/tasks/api/tasks.api.types";
 type PropsType = {
     todolist: TodolistDomainType;
     tasks: TaskType[];
-    changeFilter: (value: FilterValuesType, todolistId: string) => void;
-    removeTodolist: (id: string) => void;
-    changeTodolistTitle: (id: string, newTitle: string) => void;
+
 };
 
 export const Todolist = React.memo(function (props: PropsType) {
     const {fetchTasks, addTask} = useActions(tasksThunks);
+    const {changeTodolistFilter} = useActions(todolistsActions);
 
 
     useEffect(() => {
