@@ -18,7 +18,7 @@ export const Task = React.memo((props: TaskPropsType) => {
 
     const {removeTask} = useActions(tasksThunks)
 
-    const onClickHandler = () => {
+    const removeTaskHandler = () => {
         removeTask({taskId: props.task.id, todolistId: props.todolistId})
     }
 
@@ -47,7 +47,7 @@ export const Task = React.memo((props: TaskPropsType) => {
                       onChange={onChangeHandler}/>
 
             <EditableSpan value={props.task.title} onChange={onTitleChangeHandler}/>
-            <IconButton onClick={onClickHandler}>
+            <IconButton onClick={removeTaskHandler}>
                 <Delete/>
             </IconButton>
         </div>
