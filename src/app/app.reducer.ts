@@ -30,6 +30,12 @@ const slice = createSlice({
             (state) => {
                 state.status = "loading"
             })
+            .addMatcher((action: AnyAction) => {
+                    return action.type.endsWith('/fulfilled')
+                },
+                (state) => {
+                    state.status = "idle"
+                })
     }
 });
 
