@@ -1,6 +1,6 @@
 import React, {memo, useCallback, useEffect} from "react";
 import {Delete} from "@mui/icons-material";
-import {Button, IconButton} from "@mui/material";
+import { IconButton} from "@mui/material";
 import {Task} from "features/todolists-list/todolists/ui/todolist/task/task";
 import {
     TodolistDomainType,

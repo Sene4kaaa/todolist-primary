@@ -1,7 +1,11 @@
 import {Button} from "@mui/material";
-import React, {FC, useCallback} from "react";
+import React, {FC} from "react";
 import {useActions} from "common/hooks";
-import {TodolistDomainType, todolistsActions} from "features/todolists-list/todolists/model/todolists.reducer";
+import {
+    FilterValuesType,
+    TodolistDomainType,
+    todolistsActions
+} from "features/todolists-list/todolists/model/todolists.reducer";
 
 type Props = {
     todolist: TodolistDomainType
@@ -11,38 +15,29 @@ export const FilterTasksButtons: FC<Props> = ({todolist}) => {
 
     const {changeTodolistFilter} = useActions(todolistsActions);
 
-    const onAllClickHandler = useCallback(
-        () => changeTodolistFilter({id: todolist.id, filter: "all"}),
-        [todolist.id],
-    );
-    const onActiveClickHandler = useCallback(
-        () => changeTodolistFilter({id: todolist.id, filter: "active"}),
-        [todolist.id],
-    );
-    const onCompletedClickHandler = useCallback(
-        () => changeTodolistFilter({id: todolist.id, filter: "completed"}),
-        [todolist.id],
-    );
+    const changeTasksFilterHandler = (filter: FilterValuesType) => {
+        changeTodolistFilter({id: todolist.id, filter})
+    }
 
     return (
         <>
             <Button
                 variant={todolist.filter === "all" ? "outlined" : "text"}
-                onClick={onAllClickHandler}
+                onClick={()=>changeTasksFilterHandler("all")}
                 color={"inherit"}
             >
                 All
             </Button>
             <Button
                 variant={todolist.filter === "active" ? "outlined" : "text"}
-                onClick={onActiveClickHandler}
+                onClick={()=>changeTasksFilterHandler("active")}
                 color={"primary"}
             >
                 Active
             </Button>
             <Button
                 variant={todolist.filter === "completed" ? "outlined" : "text"}
-                onClick={onCompletedClickHandler}
+                onClick={()=>changeTasksFilterHandler("completed")}
                 color={"secondary"}
             >
                 Completed
