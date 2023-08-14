@@ -21,7 +21,7 @@ type PropsType = {
 export const Todolist = React.memo(function (props: PropsType) {
     const {fetchTasks, addTask} = useActions(tasksThunks);
     const {changeTodolistFilter} = useActions(todolistsActions);
-    const {removeTodolist,changeTodolistTitle,} = useActions(todolistsThunks);
+    const {removeTodolist, changeTodolistTitle,} = useActions(todolistsThunks);
 
 
     useEffect(() => {
@@ -36,14 +36,14 @@ export const Todolist = React.memo(function (props: PropsType) {
     );
 
     const removeTodolistHandler = () => {
-       removeTodolist(props.todolist.id);
+        removeTodolist(props.todolist.id);
     };
 
-    const changeTodolistTitle = useCallback(
+    const changeTodolistTitleCallback = useCallback(
         (title: string) => {
-            props.changeTodolistTitle(props.todolist.id, title);
+            changeTodolistTitle({id: props.todolist.id, title});
         },
-        [props.todolist.id, props.changeTodolistTitle],
+        [props.todolist.id],
     );
 
     const onAllClickHandler = useCallback(
@@ -71,7 +71,7 @@ export const Todolist = React.memo(function (props: PropsType) {
     return (
         <div>
             <h3>
-                <EditableSpan value={props.todolist.title} onChange={changeTodolistTitle}/>
+                <EditableSpan value={props.todolist.title} onChange={changeTodolistTitleCallback}/>
                 <IconButton onClick={removeTodolistHandler} disabled={props.todolist.entityStatus === "loading"}>
                     <Delete/>
                 </IconButton>
